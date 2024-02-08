@@ -19,11 +19,11 @@ pub async fn explorer(opts: &ExplorerOpts) {
 
     let host_env = format!("PHX_HOST={}", opts.host);
     let env = vec![
-        "RPC_API_HOST=http://host.docker.internal:9944",
+        "RPC_API_HOST=http://161.97.83.146:9944",
         "DB_TYPE=sqlite",
         "DISABLE_MAINNET_SYNC=false",
         "DISABLE_TESTNET_SYNC=true",
-        "TESTNET_RPC_API_HOST=http://host.docker.internal:9944",
+        "TESTNET_RPC_API_HOST=http://161.97.83.146:9944",
         "DATABASE_PATH=/use/exp.db",
         host_env.as_str(),
         &secret_key_base,
@@ -37,7 +37,7 @@ pub async fn explorer(opts: &ExplorerOpts) {
 
     let host_config = HostConfig {
         port_bindings: Some(port_bindings),
-        extra_hosts: Some(vec!["host.docker.internal:host-gateway".to_string()]),
+        extra_hosts: Some(vec!["161.97.83.146:host-gateway".to_string()]),
         ..Default::default()
     };
 
